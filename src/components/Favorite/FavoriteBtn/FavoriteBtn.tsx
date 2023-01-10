@@ -6,6 +6,7 @@ import React, {FC} from 'react';
 import { favoriteEventChannel } from "../../../eventChannel/favorite";
 import { addToFav } from "../../../utils/fetchUtils";
 import './FavoriteBtn.scss';
+import toast from 'react-hot-toast';
 
 interface Props {
     movieId: number;
@@ -16,12 +17,15 @@ export const FavoriteBtn: FC<Props> = ( {movieId, value} ) => {
 
     const handleToFav = () => {
         addToFav(movieId, value)
-        .then(() => favoriteEventChannel.emit('onRemoveFavoriteClick', {movie_id: movieId}));
+        .then(() => {
+            toast.success(value? 'Movie added to favorites':'Movie removed from favorites');
+            favoriteEventChannel.emit('onRemoveFavoriteClick', {movie_id: movieId})
+        });
     }
 
     return (
         <div className="fav">
-            <FontAwesomeIcon icon={value? faHeartTrue:faHeartFalse} onClick={handleToFav}/>
+            <FontAwesomeIcon title={value? "Add to favorites" : "Remove from favorites"} icon={value? faHeartTrue:faHeartFalse} onClick={handleToFav}/>
         </div>
       );
 };
