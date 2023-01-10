@@ -1,0 +1,9 @@
+.page_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .media_results {
+        padding-top: 40px;
+    }
+}

@@ -1,0 +1,33 @@
+.search_wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+
+
+
+    form{
+        display: flex;
+       input[type=text]{
+        border-radius: 10px 0 0 10px;
+        display: flex;
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        background: #f1f1f1;
+        flex: 1 1 auto;
+       }
+       button {
+        border-radius: 0 10px 10px 0;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+        &:hover{
+            background: #0b7dda;
+        }
+       }
+    }
+}

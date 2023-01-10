@@ -1,0 +1,48 @@
+.card {
+    width: 200px;
+    margin: 20px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    position: relative;
+    img {
+        width: 200px;
+        height: 300px;
+    }
+    &:hover {
+        border: 1px solid #000;
+        .moreInfo {
+            display: block;
+            
+        }
+    }
+
+    .content{
+        width: 100%;
+        padding: 10px;
+        position: relative;
+        white-space: normal;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        h2 {
+            font-size: 1em;
+            margin: 0;
+            width: 100%;
+            word-wrap: normal;
+            overflow-wrap: break-word;
+        }
+    }
+    .moreInfo { 
+        display: none;
+        padding: 0 15px;
+        white-space: normal;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.7);
+        height: 300px;
+        top: 0px;
+        overflow-y: auto;
+        font-size: 0.8em;
+    }
+}
