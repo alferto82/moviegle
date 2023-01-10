@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { fetchSearch } from "../../utils/fetchUtils";
 import { Movies } from "../movies/Movies";
 import { Pagination } from "../pagination/Pagination";
+import { Spinner } from "../Spinner/Spinner";
 import "./Search.scss";
 
 
@@ -43,11 +44,11 @@ export const Search: FC = () => {
 
   return (
     <div className="search_wrapper">
-      <form onSubmit={onSubmitHandler}>
+      <form id="searchForm" onSubmit={onSubmitHandler}>
         <input type="text" name="inputSearch" ></input>
         <button type="submit">Search</button>
       </form>
-      {loading && <p>Loading... </p>}
+      {loading && <Spinner />}
       {data && !loading && ( <Movies movies= {data}></Movies>)}
       {totalPages > 1 && <Pagination page={page}  totalPages={totalPages} handlePagination={setPage}></Pagination> }
     </div>
