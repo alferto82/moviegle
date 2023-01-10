@@ -1,6 +1,10 @@
 import React from "react";
 import { watchLaterEventChannel } from "../../../eventChannel/watchLater";
 import { addToWatchList } from "../../../utils/fetchUtils";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark as faBookmarkTrue } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark as faBookmarkFalse } from "@fortawesome/free-solid-svg-icons";
+
 import './WatchLaterBtn.scss';
 
 export const WatchLaterBtn: React.FC<any> = ( {movieId, value} ) => {
@@ -12,7 +16,7 @@ export const WatchLaterBtn: React.FC<any> = ( {movieId, value} ) => {
 
     return (
         <div className="watchLater">
-           <button onClick={handleWatchLater}>{value?"Add WL": "Remove WL"}</button>
+            <FontAwesomeIcon icon={value? faBookmarkTrue:faBookmarkFalse} onClick={handleWatchLater}/>
         </div>
       );
 };

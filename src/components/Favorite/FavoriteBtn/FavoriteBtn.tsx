@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as faHeartTrue } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as faHeartFalse } from "@fortawesome/free-solid-svg-icons";
+
 import React, {FC} from 'react';
 import { favoriteEventChannel } from "../../../eventChannel/favorite";
 import { addToFav } from "../../../utils/fetchUtils";
@@ -17,7 +21,7 @@ export const FavoriteBtn: FC<Props> = ( {movieId, value} ) => {
 
     return (
         <div className="fav">
-           <button onClick={handleToFav}>{value?"Add FAV": "Remove FAV"}</button>
+            <FontAwesomeIcon icon={value? faHeartTrue:faHeartFalse} onClick={handleToFav}/>
         </div>
       );
 };
