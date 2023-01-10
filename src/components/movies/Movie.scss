@@ -8,7 +8,6 @@
     position: relative;
     img {
         width: 200px;
-        height: 300px;
     }
     &:hover {
         border: 1px solid #000;
@@ -21,6 +20,7 @@
     .content{
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
         padding: 10px;
         h2 {
             font-size: 1em;
@@ -28,6 +28,13 @@
             width: 100%;
             word-wrap: normal;
             overflow-wrap: break-word;
+            span{
+                font-size: 0.8em;
+                color: #686262;
+            }
+        }
+        .overview{
+            display: none;
         }
     }
     .moreInfo { 
@@ -40,5 +47,40 @@
         top: 0px;
         overflow-y: auto;
         font-size: 0.8em;
+    }
+}
+
+@media (max-width: 769px) {
+    .card {
+        width: 100%;
+        display: flex;
+        .image{
+            flex: 0 0 100px;
+            align-items: center;
+            display: flex;
+            img {
+                width: 100px;
+                padding: 5px;
+            }
+        }
+        
+        &:hover {
+            .moreInfo {
+                display: none;
+            }
+        }
+        .content{
+            display: flex;
+            flex: 0 1 auto;
+            flex-direction: column;
+            .overview{
+                display: flex;
+                margin: 0;
+                flex: 0 0 auto;
+                flex-wrap: wrap;
+                max-height: 80px;
+                overflow-y: auto;
+            }
+        }
     }
 }

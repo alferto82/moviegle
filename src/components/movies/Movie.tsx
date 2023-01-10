@@ -32,10 +32,12 @@ export const Movie: FC<Props> = ( {movie, favorite = true, watchLater = true} ) 
                 </div>
             </div>
             <div className="content">
-            <FavoriteBtn movieId={movie.id} value={favorite}></FavoriteBtn>
-            <WatchLaterBtn movieId={movie.id} value={watchLater}></WatchLaterBtn>
-                <h2>{movie.title}</h2>
-                <p>{getReleaseYear(movie.release_date)}</p>
+                <div className="buttons">
+                    <FavoriteBtn movieId={movie.id} value={favorite}></FavoriteBtn>
+                    <WatchLaterBtn movieId={movie.id} value={watchLater}></WatchLaterBtn>   
+                </div>
+                <h2>{movie.title} <span>{getReleaseYear(movie.release_date)}</span></h2>
+                <p className="overview">{movie.overview}</p>
             </div>
             <div className="moreInfo">
                 <p>{movie.overview}</p>

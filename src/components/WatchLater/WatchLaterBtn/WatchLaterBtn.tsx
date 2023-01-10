@@ -11,7 +11,7 @@ export const WatchLaterBtn: React.FC<any> = ( {movieId, value} ) => {
     }
 
     return (
-        <div className="fav">
+        <div className="watchLater">
            <button onClick={handleWatchLater}>{value?"Add WL": "Remove WL"}</button>
         </div>
       );

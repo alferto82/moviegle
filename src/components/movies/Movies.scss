@@ -2,7 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
+    @media (max-width: 769px) {
+        flex-direction: column;
+    }
     .media_results {
         padding-top: 40px;
     }

@@ -45,7 +45,7 @@ export const Search: FC = () => {
   return (
     <div className="search_wrapper">
       <form id="searchForm" onSubmit={onSubmitHandler}>
-        <input type="text" name="inputSearch" ></input>
+        <input placeholder="Write here a movie title" type="text" name="inputSearch" ></input>
         <button type="submit">Search</button>
       </form>
       {loading && <Spinner />}
