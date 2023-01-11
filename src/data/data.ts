@@ -6,6 +6,12 @@ export interface IMovie {
     poster_path: string
 }
 
+export interface IResponse<T> {
+    results: Array<T>,
+    page: number,
+    total_pages: number
+}
+
 export type EventData = {
     movie_id: number
 }

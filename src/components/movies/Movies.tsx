@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import { IMovie } from "../../data/data";
 import { Movie } from "./Movie";
 import './Movies.scss';
@@ -9,12 +9,12 @@ interface Props {
     watchLater?: boolean
 }
 
-export const Movies: FC<Props> = ( {movies, favorite = true, watchLater = true} ) => {
+export const Movies: React.FC<Props> = ( {movies, favorite = true, watchLater = true} ) => {
     return (
         <section id="media_results" className="panel results">
             <div className="media_items results">
                 <div className="page_wrapper">
-                    {movies.length > 0 ?  (movies!.map((movie: any) => <Movie favorite={favorite} watchLater={watchLater} movie={movie} key={movie.id}></Movie>)) : <span className="noMovies">There are no movies that matched your query.</span> }
+                    {movies.length > 0 ?  (movies!.map((movie: IMovie) => <Movie favorite={favorite} watchLater={watchLater} movie={movie} key={movie.id}></Movie>)) : <span className="noMovies">There are no movies that matched your query.</span> }
                 </div>
             </div>
         </section>

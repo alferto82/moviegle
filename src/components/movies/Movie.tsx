@@ -15,9 +15,8 @@ export const Movie: FC<Props> = ( {movie, favorite = true, watchLater = true} ) 
 
     const IMG_BASE= "https://image.tmdb.org/t/p/w200/"
 
-    const addDefaultSrc = (ev:any) => {
-        ev.target.onError = null;
-        ev.target.src = defaultMovie;
+    const addDefaultSrc = (ev:React.SyntheticEvent<HTMLImageElement, Event>) => {
+        (ev.target as HTMLImageElement).src = defaultMovie;
     }
 
     const getReleaseYear = (date:string) => {

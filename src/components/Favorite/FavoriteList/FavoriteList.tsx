@@ -1,4 +1,4 @@
-import React,{ FC, useEffect } from "react";
+import React,{ useEffect } from "react";
 import { favoriteEventChannel } from "../../../eventChannel/favorite";
 import useFetch from "../../../hooks/useFetch";
 import { api_key, session_id } from "../../../utils/fetchUtils";
@@ -9,7 +9,7 @@ import { Spinner } from "../../Spinner/Spinner";
 import "./FavoriteList.scss";
 
 
-export const FavoriteList: FC = () => {
+export const FavoriteList: React.FC = () => {
   const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(`https://api.themoviedb.org/3/account/acc/favorite/movies?api_key=${api_key}&session_id=${session_id}`);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const FavoriteList: FC = () => {
     return () => {
       unsubscribeOnRemoveFavoriteClick()
     }
-  }, [])
+  }, [currentPage])
 
   return (
     <div className="search_wrapper">

@@ -8,7 +8,12 @@ import toast from 'react-hot-toast';
 
 import './WatchLaterBtn.scss';
 
-export const WatchLaterBtn: React.FC<any> = ( {movieId, value} ) => {
+interface Props {
+    movieId: number,
+    value: boolean
+}
+
+export const WatchLaterBtn: React.FC<Props> = ( {movieId, value} ) => {
 
     const handleWatchLater = () => {
         addToWatchList(movieId, value)
