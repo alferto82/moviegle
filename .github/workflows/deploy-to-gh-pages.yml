@@ -20,8 +20,8 @@ jobs:
         npm install
         npm run-script build
       env:
-        REACT_APP_APIKey: ${{secrets.REACT_APP_APIKey}}
-        REACT_APP_SessionId: ${{secrets.REACT_APP_SessionId}}
+        REACT_APP_APIKey: ${{secrets.REACT_APP_API_KEY}}
+        REACT_APP_SessionId: ${{secrets.REACT_APP_SESSION_ID}}
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
