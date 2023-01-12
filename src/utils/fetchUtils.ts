@@ -1,8 +1,10 @@
+import { ADD_FAV_URL, ADD_WATCH_LATER_URL, FAV_URL, SEARCH_URL, WATCH_LATER_URL } from "../data/data";
+
 export const api_key = process.env.REACT_APP_APIKey; //"f62cd036a0c1e812c874e14efa114255"
 export const session_id = process.env.REACT_APP_SessionId; //"2ce7f1268843627f84528bdf45e966962cff4342";
 
 export const fetchSearch = async (text: string, page: number): Promise<Response> => {
-    return await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&page=${page}&query=${text}`);
+    return await fetch(`${SEARCH_URL}&page=${page}&query=${text}`);
 }
 
 // value = true ---> ADD
@@ -13,7 +15,7 @@ export const addToFav = async (movieId: number, value: boolean): Promise<Respons
         media_id: movieId,
         favorite: value
     }
-    return await fetch(`https://api.themoviedb.org/3/account/acc/favorite?api_key=${api_key}&session_id=${session_id}`, 
+    return await fetch(ADD_FAV_URL, 
     {
         method: 'POST' ,
         body: JSON.stringify(body),
@@ -22,7 +24,7 @@ export const addToFav = async (movieId: number, value: boolean): Promise<Respons
 }
 
 export const getFavList = async (): Promise<Response> => {
-    return await fetch(`https://api.themoviedb.org/3/account/acc/favorite?api_key=${api_key}&session_id=${session_id}`);
+    return await fetch(FAV_URL);
 }
 
 // value = true ---> ADD
@@ -33,7 +35,7 @@ export const addToWatchList = async (movieId: number, value: boolean): Promise<R
         media_id: movieId,
         watchlist: value
     }
-    return await fetch(`https://api.themoviedb.org/3/account/acc/watchlist?api_key=${api_key}&session_id=${session_id}`, 
+    return await fetch(ADD_WATCH_LATER_URL, 
     {
         method: 'POST' ,
         body: JSON.stringify(body),
@@ -43,6 +45,6 @@ export const addToWatchList = async (movieId: number, value: boolean): Promise<R
 
 
 export const getWatchList = async (): Promise<Response> => {
-    return await fetch(`https://api.themoviedb.org/3/account/acc/watchlist?api_key=${api_key}&session_id=${session_id}`);
+    return await fetch(WATCH_LATER_URL);
 }
 

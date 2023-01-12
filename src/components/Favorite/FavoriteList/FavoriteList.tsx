@@ -1,13 +1,14 @@
 import React,{ useEffect } from "react";
-import { FAVORITE_URL } from "../../../data/data";
+import { FAV_URL } from "../../../data/data";
 import { favoriteEventChannel } from "../../../eventChannel/favorite";
 import useFetch from "../../../hooks/useFetch";
 import { Movies } from "../../movies/Movies";
 import { Pagination } from "../../pagination/Pagination";
 import { Spinner } from "../../Spinner/Spinner";
 
+
 export const FavoriteList: React.FC = () => {
-  const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(FAVORITE_URL);
+  const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(FAV_URL);
 
   useEffect(() => {
     // subscribe to events when mounting
@@ -22,7 +23,7 @@ export const FavoriteList: React.FC = () => {
     return () => {
       unsubscribeOnRemoveFavoriteClick()
     }
-  }, [setCurrentPage])
+  }, [currentPage])
 
   return (
     <div className="search_wrapper">

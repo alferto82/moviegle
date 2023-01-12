@@ -1,5 +1,5 @@
 import { queryByAttribute, render, screen } from '@testing-library/react';
-import { FAVORITE_URL, IMovie } from '../../../data/data';
+import { FAV_URL, IMovie } from '../../../data/data';
 import useFetch from '../../../hooks/useFetch';
 import { FavoriteList } from './FavoriteList';
 
@@ -28,7 +28,7 @@ const getByClass = queryByAttribute.bind(null, 'class');
 test('Renders correctly', () => {
   (useFetch as jest.Mock).mockReturnValue(mockResponse);
   const component =render(<FavoriteList />);
-  expect(useFetch).toHaveBeenCalledWith(FAVORITE_URL);
+  expect(useFetch).toHaveBeenCalledWith(FAV_URL);
   expect(screen.findByRole("Spinner")).not.toBeNull();
   
   expect(getByClass(component.container, "loaderWrapper")).not.toBeNull(); 
@@ -39,7 +39,7 @@ test('Renders correctly', () => {
 test('Renders without loading', () => {
   (useFetch as jest.Mock).mockReturnValue({...mockResponse, loading: false});
   const component =render(<FavoriteList />);
-  expect(useFetch).toHaveBeenCalledWith(FAVORITE_URL);
+  expect(useFetch).toHaveBeenCalledWith(FAV_URL);
   expect(screen.findByRole("Spinner")).not.toBeNull();
 
   expect(getByClass(component.container, "loaderWrapper")).toBeNull(); 
@@ -50,7 +50,7 @@ test('Renders without loading', () => {
 test('Renders with results', () => {
   (useFetch as jest.Mock).mockReturnValue({...mockResponse, loading: false, data:[mockMovie], totalPages: 10});
   const component =render(<FavoriteList />);
-  expect(useFetch).toHaveBeenCalledWith(FAVORITE_URL);
+  expect(useFetch).toHaveBeenCalledWith(FAV_URL);
   expect(screen.findByRole("Spinner")).not.toBeNull();
 
   expect(getByClass(component.container, "loaderWrapper")).toBeNull(); 
