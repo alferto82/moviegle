@@ -1,6 +1,13 @@
+@import '../../constants.scss';
 .search_wrapper {
     display: flex;
     flex-direction: column;
+    .logoImg{
+        display: block;
+        margin-left: auto;
+        width: 250px;
+        margin-right: auto;
+    }
 
     form#searchForm{
         display: flex;
@@ -11,21 +18,21 @@
         display: flex;
         padding: 10px;
         font-size: 17px;
-        border: 1px solid grey;
+        border: 1px solid $grey;
         background: #f1f1f1;
         flex: 0 0 60%;
        }
        button {
         border-radius: 0 10px 10px 0;
         padding: 10px;
-        background: #2196F3;
+        background: $primary;
         color: white;
         font-size: 17px;
-        border: 1px solid grey;
+        border: 1px solid $grey;
         border-left: none;
         cursor: pointer;
         &:hover{
-            background: #0b7dda;
+            background: $primary_dark;
         }
        }
     }

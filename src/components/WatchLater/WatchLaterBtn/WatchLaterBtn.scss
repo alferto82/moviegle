@@ -1,6 +1,7 @@
+@import '../../../constants.scss';
 .watchLater{
     cursor: pointer;
     &:hover{
-        color: #39A2DB;
+        color: $primary;
     }
 }

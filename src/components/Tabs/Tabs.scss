@@ -1,3 +1,4 @@
+@import '../../constants.scss';
 .Tabs {
     width: 90%;
     height: auto;
@@ -14,14 +15,14 @@
 
    /* Tab Navigation */
 ul.nav {
-    color: #E8F0F2;
-    background: #053742;
+    color: $secondary;
+    background: $bg_dark;
     width: 60%;
     margin: 0 auto 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #39A2DB;
+    border: 1px solid $primary;
     border-radius: 2rem;
     padding-left: 0px;
     @media (max-width: 768px) {
@@ -50,5 +51,5 @@ ul.nav {
     background: rgba(50, 224, 196, 0.15);
   }
   ul.nav li.active {
-    background: #39A2DB;
+    background: $primary;
   }

@@ -6,9 +6,6 @@ import { Movies } from "../../movies/Movies";
 import { Pagination } from "../../pagination/Pagination";
 import { Spinner } from "../../Spinner/Spinner";
 
-import "./WatchLaterList.scss";
-
-
 export const WatchLaterList: React.FC = () => {
   const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(WATCH_LATER_URL);
 

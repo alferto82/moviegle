@@ -6,9 +6,6 @@ import { Movies } from "../../movies/Movies";
 import { Pagination } from "../../pagination/Pagination";
 import { Spinner } from "../../Spinner/Spinner";
 
-import "./FavoriteList.scss";
-
-
 export const FavoriteList: React.FC = () => {
   const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(FAVORITE_URL);
 

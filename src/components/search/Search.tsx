@@ -5,6 +5,7 @@ import { Movies } from "../movies/Movies";
 import { Pagination } from "../pagination/Pagination";
 import { Spinner } from "../Spinner/Spinner";
 import "./Search.scss";
+import logo from "../../assets/logo.png";
 
 export const Search: React.FC = () => {
   const [text, setText] = useState<string>("");
@@ -40,6 +41,7 @@ export const Search: React.FC = () => {
 
   return (
     <div className="search_wrapper">
+      <img className="logoImg" src={logo} ></img>
       <form id="searchForm" onSubmit={onSubmitHandler}>
         <input placeholder="Write here a movie title" type="text" name="inputSearch" ></input>
         <button type="submit">Search</button>
