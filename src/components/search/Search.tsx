@@ -41,7 +41,7 @@ export const Search: React.FC = () => {
 
   return (
     <div className="search_wrapper">
-      <img className="logoImg" src={logo} ></img>
+      <img className="logoImg" src={logo} alt="Moviegle"></img>
       <form id="searchForm" onSubmit={onSubmitHandler}>
         <input placeholder="Write here a movie title" type="text" name="inputSearch" ></input>
         <button type="submit">Search</button>
