@@ -16,7 +16,6 @@ All the sections are paginated.
 
 
 ## Search
--------------
 This is the principal tab where user can search a movie using the title (there isn't restrictions in the length of the movie title). Results are presented in boxes (in mobile we use a different layout) with two icons (add to favorites and add to watch later)
 ![image](https://user-images.githubusercontent.com/3264134/212081666-4c0ac5a0-4ee7-4729-99ed-e4cb063592a5.png)
 
@@ -25,11 +24,9 @@ This is the principal tab where user can search a movie using the title (there i
 API call: 
 
 ## Favorites
--------------
 Here we show the favorites movies that have been added to the favorite list. To remove a movie from favorites, we should click on the icon again
 
 ## Watch Later
--------------
 Here we show the favorites movies that have been added to the watch later list. To remove a movie from watch list, we should click on the icon again
 
 ----
