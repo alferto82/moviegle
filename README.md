@@ -31,3 +31,10 @@ Here we show the favorites movies that have been added to the favorite list. To 
 ## Watch Later
 -------------
 Here we show the favorites movies that have been added to the watch later list. To remove a movie from watch list, we should click on the icon again
+
+----
+### IMPORTANT:
+If you want to deploy this locally, you need to modify .env file:
+````javascript
+REACT_APP_APIKey=INSERT_HERE_YOUR_API_KEY
+REACT_APP_SessionId=INSERT_HERE_YOUR_SESSION_ID
