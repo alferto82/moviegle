@@ -1,6 +1,5 @@
-
-export const api_key = "f62cd036a0c1e812c874e14efa114255"
-export const session_id = "2ce7f1268843627f84528bdf45e966962cff4342";
+export const api_key = process.env.REACT_APP_APIKey; //"f62cd036a0c1e812c874e14efa114255"
+export const session_id = process.env.REACT_APP_SessionId; //"2ce7f1268843627f84528bdf45e966962cff4342";
 
 export const fetchSearch = async (text: string, page: number): Promise<Response> => {
     return await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&page=${page}&query=${text}`);
