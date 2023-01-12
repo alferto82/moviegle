@@ -30,7 +30,8 @@ test('Renders with data correctly', () => {
 test('Renders with data correctly', () => {
   let movies = [];
   for(let i = 0; i < 25; i++){
-    movies.push(mockMovie);
+
+    movies.push({...mockMovie, id: i});
   }
   const component =render(<Movies movies={movies} />);
   
