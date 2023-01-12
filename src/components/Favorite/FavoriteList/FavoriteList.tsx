@@ -1,7 +1,7 @@
 import React,{ useEffect } from "react";
+import { FAVORITE_URL } from "../../../data/data";
 import { favoriteEventChannel } from "../../../eventChannel/favorite";
 import useFetch from "../../../hooks/useFetch";
-import { api_key, session_id } from "../../../utils/fetchUtils";
 import { Movies } from "../../movies/Movies";
 import { Pagination } from "../../pagination/Pagination";
 import { Spinner } from "../../Spinner/Spinner";
@@ -10,7 +10,7 @@ import "./FavoriteList.scss";
 
 
 export const FavoriteList: React.FC = () => {
-  const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(`https://api.themoviedb.org/3/account/acc/favorite/movies?api_key=${api_key}&session_id=${session_id}`);
+  const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(FAVORITE_URL);
 
   useEffect(() => {
     // subscribe to events when mounting

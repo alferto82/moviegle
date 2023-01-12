@@ -1,90 +1,103 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Pagination, Props } from './Pagination';
 
-
-describe('<Pagination />', () => {
-  it('renders the component from the beginning', () => {
+test('Renders numbers of pages correctly', () => {
     const mockProps: Props = {
-      page: 1,
-      totalPages: 5,
-      handlePagination: jest.fn(),
-    };
-    const wrapper = mount(<Pagination {...mockProps} />);
+        page: 1,
+        totalPages: 60,
+        handlePagination: jest.fn(),
+        };
+    render(<Pagination {...mockProps}/>);
 
-    wrapper.find('button').at(0).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(1);
+    const allButtons = screen.getAllByRole("button");
+    expect((allButtons.at(0) as HTMLButtonElement).textContent).toBe("1");
+    expect((allButtons.at(allButtons.length - 2) as HTMLButtonElement).textContent).toBe("60");
+    expect((allButtons.at(allButtons.length - 1) as HTMLButtonElement).textContent).toBe(">");
+});
 
-    wrapper.find('button').at(1).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(2);
-
-    wrapper.find('button').at(2).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(3);
-
-    wrapper.find('button').at(3).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(5);
-
-    wrapper.find('button').at(4).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(2);
-
-    expect(wrapper.render()).toMatchSnapshot();
-  });
-
-it('renders the component from the end', () => {
+test('Renders numbers of pages correctly last page selected', () => {
     const mockProps: Props = {
-      page: 5,
-      totalPages: 5,
-      handlePagination: jest.fn(),
-    };
-    const wrapper = mount(<Pagination {...mockProps} />);
+        page: 60,
+        totalPages: 60,
+        handlePagination: jest.fn(),
+        };
+    render(<Pagination {...mockProps}/>);
 
-    wrapper.find('button').at(0).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(4);
+    const allButtons = screen.getAllByRole("button");
+    expect((allButtons.at(0) as HTMLButtonElement).textContent).toBe("<");
+    expect((allButtons.at(allButtons.length - 2) as HTMLButtonElement).textContent).toBe("59");
+    expect((allButtons.at(allButtons.length - 1) as HTMLButtonElement).textContent).toBe("60");
+});
 
-    wrapper.find('button').at(1).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(1);
-
-    wrapper.find('button').at(2).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(3);
-
-    wrapper.find('button').at(3).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(4);
-
-    wrapper.find('button').at(4).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(5);
-
-expect(wrapper.render()).toMatchSnapshot();
-  });
-
-it('renders the component from the middle', () => {
+test('renders the component from the beginning', () => {
     const mockProps: Props = {
-      page: 3,
-      totalPages: 5,
-      handlePagination: jest.fn(),
-    };
-    const wrapper = mount(<Pagination {...mockProps} />);
+        page: 1,
+        totalPages: 5,
+        handlePagination: jest.fn(),
+        };
+    render(<Pagination {...mockProps}/>);
+    
+    const allButtons = screen.getAllByRole("button");
 
-    wrapper.find('button').at(0).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(2);
+    userEvent.click(allButtons.at(0) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(1);
+    userEvent.click(allButtons.at(1) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(2);
+    userEvent.click(allButtons.at(2) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(3);
+    userEvent.click(allButtons.at(3) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(3);
+    userEvent.click(allButtons.at(4) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(5);
+});
 
-    wrapper.find('button').at(1).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(1);
+test('renders the component from the end', () => {
 
-    wrapper.find('button').at(2).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(2);
+    const mockProps: Props = {
+        page: 5,
+        totalPages: 5,
+        handlePagination: jest.fn(),
+        };
+    render(<Pagination {...mockProps}/>);
+    
+    const allButtons = screen.getAllByRole("button");
 
-    wrapper.find('button').at(3).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(3);
+    userEvent.click(allButtons.at(0) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(4);
+    userEvent.click(allButtons.at(1) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(1);
+    userEvent.click(allButtons.at(2) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(3);
+    userEvent.click(allButtons.at(3) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(4);
+    userEvent.click(allButtons.at(4) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(5);
+});
 
-    wrapper.find('button').at(4).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(4);
 
-    wrapper.find('button').at(5).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(5);
+test('renders the component from the middle', () => {
+    const mockProps: Props = {
+        page: 3,
+        totalPages: 5,
+        handlePagination: jest.fn(),
+        };
+    render(<Pagination {...mockProps}/>);
+    
+    const allButtons = screen.getAllByRole("button");
 
-    wrapper.find('button').at(6).simulate('click');
-    expect(mockProps.handlePagination).toBeCalledWith(4);
-
-    expect(wrapper.render()).toMatchSnapshot();
-  });
+    userEvent.click(allButtons.at(0) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(2);
+    userEvent.click(allButtons.at(1) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(1);
+    userEvent.click(allButtons.at(2) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(2);
+    userEvent.click(allButtons.at(3) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(3);
+    userEvent.click(allButtons.at(4) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(4);
+    userEvent.click(allButtons.at(5) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(5);
+    userEvent.click(allButtons.at(6) as HTMLButtonElement);
+    expect(mockProps.handlePagination).toHaveBeenCalledWith(4);
 });

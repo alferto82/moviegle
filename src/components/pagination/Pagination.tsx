@@ -31,7 +31,7 @@ export const PaginationComponent: React.FC<Props> = ({
           onClick={() => handlePagination(1)}
           type="button"
           className={classNames("pageItem", {
-            ["active"]: page === 1,
+            "active": page === 1,
           })}
         >
           {1}
@@ -95,7 +95,7 @@ export const PaginationComponent: React.FC<Props> = ({
           onClick={() => handlePagination(totalPages)}
           type="button"
           className={classNames("pageItem", {
-            ["active"]: page === totalPages,
+            "active": page === totalPages,
           })}
         >
           {totalPages}

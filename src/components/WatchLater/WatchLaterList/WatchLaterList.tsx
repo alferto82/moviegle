@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { WATCH_LATER_URL } from "../../../data/data";
 import { watchLaterEventChannel } from "../../../eventChannel/watchLater";
 import useFetch from "../../../hooks/useFetch";
 import { api_key, session_id } from "../../../utils/fetchUtils";
@@ -10,7 +11,7 @@ import "./WatchLaterList.scss";
 
 
 export const WatchLaterList: React.FC = () => {
-  const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(`https://api.themoviedb.org/3/account/acc/watchlist/movies?api_key=${api_key}&session_id=${session_id}`);
+  const {data, loading, error, totalPages, currentPage, setCurrentPage} = useFetch(WATCH_LATER_URL);
 
   useEffect(() => {
     // subscribe to events when mounting

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import './Movie.scss';
 import defaultMovie from "../../assets/defaultMovie.png";
-import { IMovie } from "../../data/data";
+import { IMovie, POSTER_IMG_BASE } from "../../data/data";
 import { FavoriteBtn } from "../Favorite/FavoriteBtn/FavoriteBtn";
 import { WatchLaterBtn } from "../WatchLater/WatchLaterBtn/WatchLaterBtn";
 
@@ -13,7 +13,7 @@ interface Props {
 
 export const Movie: FC<Props> = ( {movie, favorite = true, watchLater = true} ) => {
 
-    const IMG_BASE= "https://image.tmdb.org/t/p/w200/"
+    
 
     const addDefaultSrc = (ev:React.SyntheticEvent<HTMLImageElement, Event>) => {
         (ev.target as HTMLImageElement).src = defaultMovie;
@@ -27,7 +27,7 @@ export const Movie: FC<Props> = ( {movie, favorite = true, watchLater = true} ) 
         <div className="card">
             <div className="image">
                 <div className="wrapper">
-                    <img onError={addDefaultSrc} loading="lazy" className="poster" src={`${IMG_BASE}/${movie.poster_path}`} alt="" />
+                    <img onError={addDefaultSrc} loading="lazy" className="poster" src={`${POSTER_IMG_BASE}/${movie.poster_path}`} alt="" />
                 </div>
             </div>
             <div className="content">
