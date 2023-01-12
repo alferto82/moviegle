@@ -23,7 +23,7 @@ export const FavoriteList: React.FC = () => {
     return () => {
       unsubscribeOnRemoveFavoriteClick()
     }
-  }, [currentPage])
+  }, [setCurrentPage])
 
   return (
     <div className="search_wrapper">
