@@ -32,6 +32,9 @@ Here we show the favorites movies that have been added to the watch later list. 
 ----
 ### IMPORTANT:
 If you want to deploy this locally, you need to modify .env file:
-````javascript
+```javascript
 REACT_APP_APIKey=INSERT_HERE_YOUR_API_KEY
 REACT_APP_SessionId=INSERT_HERE_YOUR_SESSION_ID
+```
+
+Demo Link: https://alferto82.github.io/moviegle/
