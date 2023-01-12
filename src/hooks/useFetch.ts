@@ -19,7 +19,7 @@ const useFetch = (url: string) => {
         setError(true);
       })
       .finally(() => setLoading(false));
-  }, [currentPage]);
+  }, [currentPage, url]);
   
   return { data, loading, error, currentPage, totalPages, setCurrentPage };
 };

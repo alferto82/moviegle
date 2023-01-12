@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { WATCH_LATER_URL } from "../../../data/data";
 import { watchLaterEventChannel } from "../../../eventChannel/watchLater";
 import useFetch from "../../../hooks/useFetch";
-import { api_key, session_id } from "../../../utils/fetchUtils";
 import { Movies } from "../../movies/Movies";
 import { Pagination } from "../../pagination/Pagination";
 import { Spinner } from "../../Spinner/Spinner";
@@ -26,7 +25,7 @@ export const WatchLaterList: React.FC = () => {
     return () => {
       unsubscribeOnRemoveWatchLaterClick()
     }
-  }, [])
+  }, [ setCurrentPage])
   
   return (
     <div className="search_wrapper">

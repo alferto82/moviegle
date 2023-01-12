@@ -24,7 +24,6 @@ export const FavoriteBtn: React.FC<Props> = ( {movieId, value} ) => {
 
     return (
         <div className="fav">
-            <button onClick={handleToFav}>{value? "Add to favorites" : "Remove from favorites"}</button>
             <FontAwesomeIcon title={value? "Add to favorites" : "Remove from favorites"} icon={value? faHeartTrue:faHeartFalse} onClick={handleToFav}/>
         </div>
       );
